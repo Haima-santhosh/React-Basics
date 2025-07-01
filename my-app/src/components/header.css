@@ -1,0 +1,32 @@
+.container
+{
+    border:3px solid saddlebrown;
+    height:5rem;
+    width:50%;
+    background-color:whitesmoke;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
+    margin-top: 50px;
+  font-size: 2rem;
+}
+.section-1
+{
+    width: 50%;
+    height: 100%;
+    border: 1px blue;
+    background-color:blueviolet ;
+}
+.section-2
+{
+    width: 50%;
+    height: 100%;
+    border: 1px black ;
+
+   background-color: red;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+}
