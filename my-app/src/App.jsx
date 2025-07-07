@@ -1,5 +1,9 @@
 import { useState } from "react"
 import "./assets/css/App.css"
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 
 function App() {
 
