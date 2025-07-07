@@ -1,74 +1,39 @@
-import { useState } from "react"
-import "./assets/css/App.css"
+import { useState } from 'react'
+
+import HomePage from './pages/HomePage'
+import ContactPage from './pages/ContactPage'
+import AboutPage from './pages/AboutPage'
+import Button from './components/Button'
 
 function App() {
+  const [count, setCount] = useState(0)
+  const [count1, setCount1] = useState(0)
+  const [count2, setCount2] = useState(0)
+  const [count3, setCount3] = useState(0)
+  const [showPage, setShowPage] = useState("")
 
-  const[products,setProducts]=useState([
-
-{
- title:"Headset-1" ,
- image:"https://hk-media.apjonlinecdn.com/catalog/product/5/3/53L34AA_UUF-1_T1678886510.png",
- price:"1500/-"
-},
-
-{
- title:"Headset-2" ,
- image:"https://hk-media.apjonlinecdn.com/catalog/product/5/3/53L34AA_UUF-1_T1678886510.png",
- price:"2000/-"
-},
-
-{
- title:"Headset-3" ,
- image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjHWYvFuVHE5IG09eyoNGE7S3lXsb5CEGyJw&s",
- price:"1000/-"
-},
-
-{
- title:"Headset-4" ,
- image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2lybS1fYZpyU1gnbQiooeekMtsJkWEbGFQQ&s",
- price:"2500/-"
-}
-
-
-
-
-
-
-  ]
-
-  )
-  
 
   return (
     <>
-      
-      <h1>Products</h1>
-      <div className="productsContainer">
-        {products.map((products,index)=>{
-          return(
-
-              <div className="productItem">
-     
-        <img src={products.image} alt={products.title} className="productImage"  />
-        <p className="productTitle">{products.title}</p>
-        <p className="productPrice">Price : {products.price}</p>
+      <div>
+        <Button handleClick={setCount} setShowPage={setShowPage} page={"home"}  >
+          show home
+        </Button>
+        <Button handleClick={setCount1} setShowPage={setShowPage} page={"about"}  >
+          show about
+        </Button>
+        <Button handleClick={setCount2} setShowPage={setShowPage} page={"contact"}  >
+          show contact
+        </Button>
+        <Button handleClick={setCount3} setShowPage={setShowPage} page={""} >
+          disable
+        </Button>
+        {showPage === 'home' && <HomePage />}
+        {showPage === 'about' && <AboutPage />}
+        {showPage === 'contact' && <ContactPage />}
       </div>
-
-   )
-        })}
-      
-
-
-      </div>
-
-
-       
-
-      
     </>
   )
 }
 
 export default App
-
-
