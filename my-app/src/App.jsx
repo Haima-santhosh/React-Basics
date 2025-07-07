@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import './index.css'; 
 
 import HomePage from './pages/HomePage'
 import ContactPage from './pages/ContactPage'
@@ -19,15 +20,7 @@ function App() {
         <Button handleClick={setCount} setShowPage={setShowPage} page={"home"}  >
           show home
         </Button>
-        <Button handleClick={setCount1} setShowPage={setShowPage} page={"about"}  >
-          show about
-        </Button>
-        <Button handleClick={setCount2} setShowPage={setShowPage} page={"contact"}  >
-          show contact
-        </Button>
-        <Button handleClick={setCount3} setShowPage={setShowPage} page={""} >
-          disable
-        </Button>
+       
         {showPage === 'home' && <HomePage />}
         {showPage === 'about' && <AboutPage />}
         {showPage === 'contact' && <ContactPage />}

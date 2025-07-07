@@ -1,8 +1,16 @@
 import React from 'react'
+import Header from '../Components/Header'
 
 function HomePage() {
     return (
-        <div>HomePage</div>
+       
+        <>
+      <Header/>
+        <div className='w-screen h-screen bg-zinc-500'>HomePage</div>
+       
+      </>
+      
+           
     )
 }
 
