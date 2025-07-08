@@ -1,74 +1,77 @@
 import { useState } from "react"
 import "./assets/css/App.css"
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
 
 
 function App() {
 
-  const[products,setProducts]=useState([
+  let products = [1, 2, 3, 4, 5]
+  let [nums,setNums]=useState([1,2,3,4,5])
 
+  let[inputVal,setInputVal]=useState('state')
+  let inputVariable="variable"
+const updateValue=(data)=>
 {
- title:"Headset-1" ,
- image:"https://hk-media.apjonlinecdn.com/catalog/product/5/3/53L34AA_UUF-1_T1678886510.png",
- price:"1500/-"
-},
+//console.log("Clicked");
+console.log(data);
 
-{
- title:"Headset-2" ,
- image:"https://hk-media.apjonlinecdn.com/catalog/product/5/3/53L34AA_UUF-1_T1678886510.png",
- price:"2000/-"
-},
 
-{
- title:"Headset-3" ,
- image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjHWYvFuVHE5IG09eyoNGE7S3lXsb5CEGyJw&s",
- price:"1000/-"
-},
-
-{
- title:"Headset-4" ,
- image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2lybS1fYZpyU1gnbQiooeekMtsJkWEbGFQQ&s",
- price:"2500/-"
 }
 
+const updateInputVal=(event)=>
+{
+console.log(event.target.value);
+setInputVal(event.target.value)
 
-
-
-
-
-  ]
-
-  )
-  
+}
 
   return (
     <>
-      
+<button onClick={()=>updateValue(10)}>Update</button>                    
+{/* if use updateValue(), it executed immediately */}
       <h1>Products</h1>
       <div className="productsContainer">
-        {products.map((products,index)=>{
-          return(
+        {products.map((products, index) => {
+          return (
 
-              <div className="productItem">
-     
-        <img src={products.image} alt={products.title} className="productImage"  />
-        <p className="productTitle">{products.title}</p>
-        <p className="productPrice">Price : {products.price}</p>
-      </div>
 
-   )
+
+            <p key={index}>{products}</p>
+
+          )
         })}
-      
+
+
+
+      </div>
+<hr/>
+
+      <div className="productsContainer">
+        {nums.map((num, index) => {
+          return (
+
+
+
+            <p key={index}>{num
+            }</p>
+
+          )
+        })}
+
 
 
       </div>
 
 
-       
+      <input type="text" onChange={updateInputVal} />
+      <p>{inputVal}</p>
+      <p>{inputVariable}</p> 
+{/* In state value change after updation , but in variable value will not */}
 
-      
+
+
+
+
     </>
   )
 }
