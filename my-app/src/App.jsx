@@ -1,75 +1,102 @@
-import { useState } from "react"
+import { useState,useEffect } from "react"
 import "./assets/css/App.css"
+import Products from "./components/Products";
+import axios from 'axios';
 
 
 
 function App() {
 
-  let products = [1, 2, 3, 4, 5]
-  let [nums,setNums]=useState([1,2,3,4,5])
 
-  let[inputVal,setInputVal]=useState('state')
-  let inputVariable="variable"
-const updateValue=(data)=>
-{
-//console.log("Clicked");
-console.log(data);
+  const[products,setProducts]=useState([])
 
 
-}
+  useEffect(()=>
+  {
+  // fetch('https://fakestoreapi.com/products')
+  // .then(response => response.json())
+  // .then(data => 
+  //   {
+  //     console.log(data)
+  //   setProducts(data)
+  // });
+  axios.get('https://fakestoreapi.com/products').
+  then(res=>setProducts(res.data));
+ 
+  
+  
+  },[])
 
-const updateInputVal=(event)=>
-{
-console.log(event.target.value);
-setInputVal(event.target.value)
+  // const[value1,setValue1]=useState(1)
+  // const[value2,setValue2]=useState(2)
 
-}
+
+  //1. useEffect(()=>
+  // {
+  //   console.log("Entered"); **********THIS WILL APPEAR WHENEVER THE PAGE RENDERED AND EACH TIME THE VALUE IS UPDATE**********
+    
+  // }) 
+
+
+  //2. useEffect(()=>
+  // {
+  //   console.log("Entered"); **********THIS WILL APPEAR ONLY WHENEVER  THE PAGE IS RENDERED AND NOT APPEAR THE VALUE IS UPDATED **********
+    
+  // },[]) ********DEPENDENCY ARRAY*********
+
+// useEffect(()=>
+//   {
+//     console.log("Value1 is UPDATED"); 
+    
+//   },[value1]) 
+
+
+//   useEffect(()=>
+//   {
+//     console.log("Value2 is UPDATED"); 
+    
+//   },[value2]) 
+
+
+//   useEffect(()=>
+//   {
+//     console.log("Value1 and Value2 is UPDATED"); 
+    
+//   },[value1,value2]) 
+
+
+
+
+
+// const updateValue1=()=>
+// {
+// setValue1(value1+1)
+
+
+// }
+
+// const updateValue2=()=>
+// {
+
+// setValue2(value2+1)
+// }
 
   return (
     <>
-<button onClick={()=>updateValue(10)}>Update</button>                    
-{/* if use updateValue(), it executed immediately */}
-      <h1>Products</h1>
-      <div className="productsContainer">
-        {products.map((products, index) => {
-          return (
-
-
-
-            <p key={index}>{products}</p>
-
-          )
-        })}
-
-
-
-      </div>
-<hr/>
-
-      <div className="productsContainer">
-        {nums.map((num, index) => {
-          return (
-
-
-
-            <p key={index}>{num
-            }</p>
-
-          )
-        })}
-
-
-
-      </div>
-
-
-      <input type="text" onChange={updateInputVal} />
-      <p>{inputVal}</p>
-      <p>{inputVariable}</p> 
-{/* In state value change after updation , but in variable value will not */}
-
-
-
+{/* <button onClick={updateValue1}>Update1</button>   
+<button onClick={updateValue2}>Update2</button>                    
+<p>{value1}</p>
+<p>{value2}</p> */}
+<h1>Products</h1>
+<div className="productsContainer">
+  {products.map((product,index)=>{
+return(
+  <div className="productItem">
+<Products product={product} key={index}/>
+    </div>
+)
+})}
+</div>
 
 
     </>
