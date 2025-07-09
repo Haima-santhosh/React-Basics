@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './index.css'; 
 import Header from './Components/Header';
 import Banner from './Components/Banner';
+import Form from './Components/Form';
 
 
 
@@ -12,6 +13,7 @@ function App() {
     <>
       <Header/>
       <Banner/>
+      <Form />
     </>
   )
 }

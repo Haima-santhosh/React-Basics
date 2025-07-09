@@ -46,8 +46,8 @@ const Banner = () => {
             
             </div>
 
-            <div className=" flex justify-center items-center">
-                <img className='w-2/3' src="https://static.vecteezy.com/system/resources/previews/048/386/753/non_2x/a-plate-filled-with-bbq-ribs-corn-on-the-cob-and-grilled-vegetables-top-view-isolated-on-a-transparent-background-free-png.png" alt="" />
+            <div className=" flex justify-center items-center overflow-hidden">
+                <img className='w-1/2 h-auto' src="https://static.vecteezy.com/system/resources/previews/048/386/753/non_2x/a-plate-filled-with-bbq-ribs-corn-on-the-cob-and-grilled-vegetables-top-view-isolated-on-a-transparent-background-free-png.png" alt="" />
             </div>
         </div>
     )
