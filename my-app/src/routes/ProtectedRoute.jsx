@@ -1,0 +1,24 @@
+import React, { useEffect, useState } from 'react'
+import { Navigate } from 'react-router-dom'
+
+
+
+const isLoggedIn=()=>
+{
+    return localStorage.getItem("status")
+}
+
+const ProtectedRoute = ({children}) => {
+   
+
+    
+    if(!isLoggedIn())
+    {
+        return <Navigate replace to="/login"/>
+       
+    }
+ return <>{children}</>
+  
+}
+
+export default ProtectedRoute

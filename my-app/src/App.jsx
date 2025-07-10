@@ -1,10 +1,14 @@
 import { useState } from 'react'
 import './index.css'; 
-import Header from './Components/Header';
-import Banner from './Components/Banner';
-import Form from './Components/Form';
-import Components from './Components/Components';
-import ProductDetails from './Components/ProductDetails';
+
+
+import { Route, Routes } from 'react-router-dom';
+import MainLayout from './layout/MainLayout';
+import HomePage from './Pages/HomePage';
+import AboutPage from './Pages/AboutPage';
+import ContactPage from './Pages/ContactPage';
+import ProtectedRoute from './routes/ProtectedRoute';
+import LoginPage from './Pages/LoginPage';
 
 
 
@@ -12,18 +16,15 @@ function App() {
  
 
   return (
-    <>
-      <Header/>
-       
-      <Banner/>
-      <Components /> 
-       {/* Commenting because of to work third condition of useEffect */}
+    <Routes>
+<Route path='/' element={<MainLayout/>} >
+<Route index element={<HomePage/>}/>
+<Route path='about' element={<ProtectedRoute><AboutPage/></ProtectedRoute>}/>
+<Route path='contact' element={<ContactPage/>}/>
+<Route path='login' element={<LoginPage/>}/>
+</Route>
 
-      {/* <Form /> */}
-      
-      <ProductDetails />
-     
-    </>
+    </Routes>
   )
 }
 

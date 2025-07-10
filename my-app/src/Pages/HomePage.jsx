@@ -5,7 +5,7 @@ function HomePage() {
     return (
        
         <>
-      <Header/>
+     
         <div className='w-screen h-screen bg-zinc-500'>HomePage</div>
        
       </>
