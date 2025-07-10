@@ -87,7 +87,9 @@ function App() {
 <button onClick={updateValue2}>Update2</button>                    
 <p>{value1}</p>
 <p>{value2}</p> */}
-<h1>Products</h1>
+
+
+<h2>Products</h2>
 <div className="productsContainer">
   {products.map((product,index)=>{
 return(
