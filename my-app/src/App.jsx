@@ -9,6 +9,8 @@ import AboutPage from './Pages/AboutPage';
 import ContactPage from './Pages/ContactPage';
 import ProtectedRoute from './routes/ProtectedRoute';
 import LoginPage from './Pages/LoginPage';
+import ProductPage from './Pages/ProductPage';
+import ProductDetailPage from './Pages/ProductDetailPage';
 
 
 
@@ -21,6 +23,8 @@ function App() {
 <Route index element={<HomePage/>}/>
 <Route path='about' element={<ProtectedRoute><AboutPage/></ProtectedRoute>}/>
 <Route path='contact' element={<ContactPage/>}/>
+<Route path='products' element={<ProductPage/>}/>
+<Route path='products/:id' element={<ProductDetailPage/>}/>
 <Route path='login' element={<LoginPage/>}/>
 </Route>
 
